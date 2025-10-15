@@ -107,7 +107,7 @@ const LineReducer = () => {
 
           <div className="text-center mt-6 pt-6 border-t border-gray-200">
             <a
-              href="#"
+              href="https://github.com/twtwtw-gj/line-reducer"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors"
