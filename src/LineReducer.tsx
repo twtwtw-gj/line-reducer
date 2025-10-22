@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Copy, Check } from 'lucide-react';
 
 const LineReducer = () => {
@@ -99,7 +99,7 @@ const LineReducer = () => {
 
           <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mt-6">
             <h2 className="font-semibold text-blue-900 mb-2">使い方</h2>
-            <p className="text-blue-800 text-sm">
+            <p className="text-blue-800 text-sm text-left">
               OneNoteや他のアプリケーションから貼り付けた文章の余分な改行を自動的に整理します。
               連続する改行を1つにまとめ、行末の不要な空白を削除し、文章全体をすっきりさせます。
             </p>
