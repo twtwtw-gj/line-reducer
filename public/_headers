@@ -1,8 +1,8 @@
-/*.css
-  Cache-Control: max-age=31536000, immutable, public
-/*.js
-  Cache-Control: max-age=31536000, immutable, public
 /*.html
-  Cache-Control: max-age=31536000, must-revalidate, public
-/*
-  Cache-Control: max-age=31536000, public
+  Cache-Control: public, max-age=31536000, must-revalidate
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+/*.png
+  Cache-Control: public, max-age=31536000, immutable
