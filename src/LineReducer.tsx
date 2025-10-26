@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Copy, Check } from 'lucide-react';
-
 const LineReducer = () => {
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('');
@@ -46,27 +45,31 @@ const LineReducer = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
             <div>
               <div className="flex justify-between items-center mb-2">
-                <label className="font-semibold text-gray-700">入力</label>
-                <span className="text-sm text-gray-500">{input.length} 文字</span>
+                <label htmlFor="input-text" className="font-semibold text-gray-700">入力</label>
+                <span className="text-sm text-gray-500" aria-label={`${input.length}文字`}>{input.length} 文字</span>
               </div>
               <textarea
+                id="input-text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 className="w-full h-96 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
                 placeholder="ここにテキストを貼り付けてください..."
+                aria-label="テキスト入力エリア"
               />
             </div>
 
             <div>
               <div className="flex justify-between items-center mb-2">
-                <label className="font-semibold text-gray-700">出力（整理後）</label>
-                <span className="text-sm text-gray-500">{output.length} 文字</span>
+                <label htmlFor="output-text" className="font-semibold text-gray-700">出力（整理後）</label>
+                <span className="text-sm text-gray-500" aria-label={`${output.length}文字`}>{output.length} 文字</span>
               </div>
               <textarea
+                id="output-text"
                 value={output}
                 readOnly
                 className="w-full h-96 p-3 border border-gray-300 rounded-lg bg-gray-50 resize-none"
                 placeholder="整理されたテキストがここに表示されます..."
+                aria-label="整理後のテキスト"
               />
             </div>
           </div>
@@ -75,6 +78,7 @@ const LineReducer = () => {
             <button
               onClick={handleClear}
               className="px-6 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors font-medium"
+              aria-label="入力テキストをクリア"
             >
               クリア
             </button>
@@ -82,15 +86,16 @@ const LineReducer = () => {
               onClick={handleCopy}
               disabled={!output}
               className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors font-medium flex items-center gap-2 disabled:bg-gray-300 disabled:cursor-not-allowed"
+              aria-label={output ? (copied ? "テキストをコピーしました" : "整理後のテキストをコピー") : "コピーできるテキストがありません"}
             >
               {copied ? (
                 <>
-                  <Check size={18} />
+                  <Check size={18} aria-hidden="true" />
                   コピーしました！
                 </>
               ) : (
                 <>
-                  <Copy size={18} />
+                  <Copy size={18} aria-hidden="true" />
                   コピー
                 </>
               )}
